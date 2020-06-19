@@ -1,0 +1,30 @@
+#include <Servo.h>
+
+int pos = 0;
+
+Servo servo_9;
+Servo servo_10;
+
+//direction controller
+int pot=A0;
+int val;
+
+void setup()
+{
+  servo_9.attach(9);
+  servo_10.attach(10);
+
+}
+
+void loop()
+{
+  val = analogRead(pot);           
+  val = map(val, 0, 1023, 0, 180);  //direction range  
+  servo_9.write(val); 
+  servo_10.write(val);
+  
+  }
+  
+ 
+
+//https://www.tinkercad.com/things/jjMgoZDBfZ2
